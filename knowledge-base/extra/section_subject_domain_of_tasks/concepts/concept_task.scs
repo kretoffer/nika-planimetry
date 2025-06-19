@@ -1,0 +1,9 @@
+concept_task
+<- sc_node_class;
+<- class;
+=> nrel_main_idtf:
+	[задача]
+	(* <- lang_ru;; *);
+=> nrel_note:
+    [задача, выбранная по теме и уровню]
+    (* <- lang_ru;; *);;

@@ -1,0 +1,29 @@
+property_of_adjacent_angles
+<- subject_domain_of_adjacent_corners;
+=> nrel_main_idtf:
+    [теорема (cвойство смежных углов)]
+    (* <- lang_ru;; *);
+=> nrel_main_idtf: [свойство смежных углов] (* <- lang_ru;; *);
+=> nrel_main_idtf: [теорема о свойстве смежных углов] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [сумма смежных углов равна 180°]
+    (* <- lang_ru;; *);;
+
+
+property_of_vertical_angles
+<- subject_domain_of_vertical_corners;
+=> nrel_main_idtf:
+    [теорема (cвойство вертикальных углов)]
+    (* <- lang_ru;; *);
+=> nrel_main_idtf: [свойство вертикальных углов] (* <- lang_ru;; *);
+=> nrel_main_idtf: [теорема о свойстве вертикальных углов] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [вертикальные углы равны]
+    (* <- lang_ru;; *);;
+

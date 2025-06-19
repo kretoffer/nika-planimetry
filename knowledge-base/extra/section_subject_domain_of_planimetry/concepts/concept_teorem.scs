@@ -1,0 +1,13 @@
+concept_teorem
+<- subject_domain_of_straights;
+=> nrel_main_idtf:
+    [теорема]
+    (* <- lang_ru;; *);
+<- concept_wit_entity;
+=> nrel_note: 
+    [утверждение, которое требует доказательства]
+    (* <- lang_ru;; *);;
+
+
+
+

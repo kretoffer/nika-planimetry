@@ -1,0 +1,35 @@
+section_subject_domain_of_planimetry_tasks
+=> nrel_main_idtf:
+    [Раздел. Предметная область планиметрических задач]
+    (* <- lang_ru;; *);
+<- atomic_section;;
+
+section_subject_domain_of_planimetry_tasks = [*
+    subject_domain_of_planimetry_tasks
+    <- sc_node_structure;
+    => nrel_main_idtf:
+        [Предметная область планиметрических задач]
+        (* <- lang_ru;; *);
+    <- subject_domain;
+    -> rrel_maximum_studied_object_class:
+        concept_task;
+    -> rrel_not_maximum_studied_object_class:
+        concept_lab_work.....;
+    -> rrel_explored_relation:
+        nrel_task_condition;
+        nrel_task_theme;
+        nrel_task_level;
+        nrel_task_clue;
+        nrel_task_answer;
+        nrel_task_number;;
+*];;
+
+section_subject_domain_of_tasks
+-> rrel_key_sc_element:
+   subject_domain_of_tasks;
+   concept_task;
+   nrel_task_condition;
+   nrel_task_theme;
+   nrel_task_level;
+   nrel_task_clue;
+   nrel_task_answer;;

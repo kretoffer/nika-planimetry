@@ -1,0 +1,6 @@
+{
+    "name": "get_task",
+    "entities": [
+        "rrel_entity:rrel_entity"
+    ]
+}

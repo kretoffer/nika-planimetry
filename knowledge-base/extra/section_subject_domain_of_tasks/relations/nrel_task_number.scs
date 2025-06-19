@@ -1,0 +1,5 @@
+nrel_task_number
+<- sc_node_non_role_relation;
+=> nrel_main_idtf:
+    [номер задачи*]
+    (* <- lang_ru;; *);;

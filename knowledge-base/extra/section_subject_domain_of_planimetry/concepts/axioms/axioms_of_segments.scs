@@ -1,0 +1,27 @@
+axiom_of_measurement_of_segments
+<- subject_domain_of_segments;
+=> nrel_main_idtf:
+    [аксиома измерения отрезков]
+    (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_axiom;
+<- concept_theme;
+=> nrel_note: 
+    [если на отрезке взять точку, то она разобьет данный отрезок на два отрезка, сумма длин которых равна длине данного отрезка]
+    (* <- lang_ru;; *);;
+    
+axiom_of_postponing_segments
+<- subject_domain_of_segments;
+=> nrel_main_idtf:
+    [аксиома откладывания отрезков]
+    (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_axiom;
+<- concept_theme;
+=> nrel_note: 
+    [на любом луче от его вершины можно отложить отрезок данной длины, и притом только один]
+    (* <- lang_ru;; *);;
+
+
+
+

@@ -1,0 +1,5 @@
+nrel_task_level
+<- sc_node_non_role_relation;
+=> nrel_main_idtf:
+    [уровень задачи*]
+    (* <- lang_ru;; *);;

@@ -1,0 +1,17 @@
+task_1
+<= nrel_task_theme: teorem_of_pifagor;
+<- concept_task;
+<- concept_wit_entity;
+=> nrel_main_idtf:
+    [задача №1]
+    (* <- lang_ru;; *);
+=> nrel_idtf:
+    [Задача №1. Нахождение стороны прямоугольного треугольника]
+    (* <- lang_ru;; *);
+=> nrel_task_level: [легко] (* <- lang_ru;; *);
+=> nrel_task_answer: [<ответ>] (* <- lang_ru;; *);
+=> nrel_task_clue:
+    [<подсказка>]
+    (* <- lang_ru;; *);
+=> nrel_condition: [condition] (* <- lang_ru;; *);
+=> nrel_note: [note] (* <- lang_ru;; *);;

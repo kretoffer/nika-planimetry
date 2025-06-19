@@ -1,0 +1,13 @@
+concept_axiom
+<- subject_domain_of_straights;
+=> nrel_main_idtf:
+    [аксиома]
+    (* <- lang_ru;; *);
+<- concept_wit_entity;
+=> nrel_note: 
+    [утверждение, которое принимается без доказательства]
+    (* <- lang_ru;; *);;
+
+
+
+

@@ -1,0 +1,27 @@
+axiom_of_measurement_of_corners
+<- subject_domain_of_segments;
+=> nrel_main_idtf:
+    [аксиома измерения углов]
+    (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_axiom;
+<- concept_theme;
+=> nrel_note: 
+    [если внутри угла из его вершины провести луч, то он разобьет данный угол на два угла, сумма градусных мер которых равна градусной мере данного угла]
+    (* <- lang_ru;; *);;
+    
+axiom_of_postponing_corners
+<- subject_domain_of_segments;
+=> nrel_main_idtf:
+    [аксиома откладывания углов]
+    (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_axiom;
+<- concept_theme;
+=> nrel_note: 
+    [от любого луча в данную полуплоскость можно отложить угол данной градусной меры, и притом только один]
+    (* <- lang_ru;; *);;
+
+
+
+

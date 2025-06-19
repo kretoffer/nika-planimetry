@@ -1,0 +1,7 @@
+{
+    "version": 20200513,
+    "zip-command": "zip nika.zip nika\/app.json nika\/entities\/*.json nika\/intents\/*.json nika\/traits\/*.json nika\/utterances\/*.json nika\/composer\/*.json",
+    "name": "nika",
+    "lang": "en",
+    "timezone": "America\/Los_Angeles"
+}

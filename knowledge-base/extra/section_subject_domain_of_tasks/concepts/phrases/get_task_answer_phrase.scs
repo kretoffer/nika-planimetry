@@ -1,0 +1,11 @@
+get_task_answer_phrase
+<- sc_node_class;
+=> nrel_main_idtf:
+    [ответ на просьбу дать задачу]
+    (* <- lang_ru;; *);;
+
+[Я не знаю такой темы]
+<- sc_link;
+<- lang_ru;
+=> nrel_system_identifier:
+    [unknown_theme_for_task_agent_message_text];;

@@ -1,0 +1,15 @@
+axiom_of_straight
+<- subject_domain_of_straights;
+=> nrel_main_idtf:
+    [аксиома прямой]
+    (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_axiom;
+<- concept_theme;
+=> nrel_note: 
+    [через любые две точки плоскости можно провести прямую, и притом только одну]
+    (* <- lang_ru;; *);;
+
+
+
+
