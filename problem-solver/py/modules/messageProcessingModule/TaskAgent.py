@@ -52,6 +52,7 @@ class TaskAgent(ScAgentClassic):
 
         try:
             message_addr = get_action_arguments(action_node, 1)[0]
+            self.logger.info(get_element_system_identifier(message_addr))
             message_type = ScKeynodes.resolve(
                 "concept_message_about_task_of_theme", sc_type.CONST_NODE_CLASS)
 
@@ -75,16 +76,20 @@ class TaskAgent(ScAgentClassic):
             idtff = get_element_system_identifier(theme_addr)
             self.logger.info(f"Detected entity {idtff}")
 
+            if not theme_addr.is_valid() or not idtff:
+                self.set_unknown_theme_link(action_node, message_addr, rrel_response)
+                return ScResult.OK
+
             self.clear_previous_answer(
                 theme_addr, rrel_response, answer_phrase)
             
             tasks = self.get_tasks_of_theme(theme_addr)
             links = [task.get(2) for task in tasks]
             
-            task = self.select_task(links, "легко")
+            task = self.select_task(links, "нормально")
             
             _idtf = get_link_content_data(self.search_lang_value_by_nrel_identifier(task, "nrel_idtf"))
-            _main_idtf = get_link_content_data(self.get_ru_main_identifier(theme_addr))
+            _main_idtf = get_link_content_data(self.get_ru_main_identifier(task))
             _level = get_link_content_data(self.search_lang_value_by_nrel_identifier(task, "nrel_task_level"))
             _condition = get_link_content_data(self.search_lang_value_by_nrel_identifier(task, "nrel_condition"))
 
@@ -97,9 +102,6 @@ class TaskAgent(ScAgentClassic):
                 {_condition}
                 <br><br>
                 Если будут проблемы с решением, напиши мне <i>"Как решить {_main_idtf}"</i> и я тебе помогу
-
-
-
             """
 
             link = generate_link(text, ScLinkContentType.STRING, link_type=sc_type.CONST_NODE_LINK)
@@ -114,32 +116,14 @@ class TaskAgent(ScAgentClassic):
              self.logger.info(f"TaskAgent: finished with an error {e}")
              return ScResult.ERROR
 
-        # entity_idtf = get_link_content_data(city_idtf_link)
-        # try:
-        #     temperature = self.get_weather(
-        #         entity_idtf, city_addr, country_addr)
-        # except requests.exceptions.ConnectionError:
-        #     self.logger.info(f"TaskAgent: finished with connection error")
-        #     return ScResult.ERROR
-        # link = generate_link(
-        #     str(temperature), ScLinkContentType.STRING, link_type=sc_type.CONST_NODE_LINK)
-        # temperature_edge = generate_connector(
-        #     sc_type.CONST_COMMON_ARC, city_addr, link)
-        # generate_connector(
-        #     sc_type.CONST_PERM_POS_ARC, nrel_response, temperature_edge)
-        # generate_action_result(action_node, link)
 
-        # return ScResult.OK
+    def set_unknown_theme_link(self, action_node: ScAddr, message_addr: ScAddr, rrel_response: ScAddr) -> None:
+        text = "Извините, но к сожалению, я не знаю эту тему"
+        link = generate_link(text, ScLinkContentType.STRING, link_type=sc_type.CONST_NODE_LINK)
+        edge = generate_connector(sc_type.CONST_COMMON_ARC, message_addr, link)
+        generate_connector(sc_type.CONST_PERM_POS_ARC, rrel_response, edge)
+        generate_action_result(action_node, link)
 
-
-    def set_unknown_theme_link(self, action_node: ScAddr, answer_phrase: ScAddr) -> None:
-        unknown_theme_link = ScKeynodes.resolve(
-            "unknown_theme_for_task_agent_message_text", None)
-        if not unknown_theme_link.is_valid():
-            raise
-        generate_connector(
-            sc_type.CONST_PERM_POS_ARC, answer_phrase, unknown_theme_link)
-        generate_action_result(action_node, unknown_theme_link)
 
     def get_ru_main_identifier(self, entity_addr: ScAddr) -> ScAddr:
         return self.search_lang_value_by_nrel_identifier(entity_addr, "nrel_main_idtf", "lang_ru")
@@ -213,7 +197,6 @@ class TaskAgent(ScAgentClassic):
             nrel_task_theme
         )
         search_results = search_by_template(template)
-        self.logger.info(f"tasks len: {len(search_results)}")
         return search_results
 
     def clear_previous_answer(self, entity, nrel_response, answer_phrase):
