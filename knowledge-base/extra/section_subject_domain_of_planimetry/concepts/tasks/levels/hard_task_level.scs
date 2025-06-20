@@ -1,0 +1,6 @@
+hard_task_level
+<- sc_node_class;
+<- class;
+=> nrel_main_idtf:
+	[сложно]
+	(* <- lang_ru;; *);;

@@ -49,8 +49,7 @@ class TaskAgent(ScAgentClassic):
 
     def run(self, action_node: ScAddr) -> ScResult:
         self.logger.info("TaskAgent started")
-
-        try:
+        if True:
             message_addr = get_action_arguments(action_node, 1)[0]
             self.logger.info(get_element_system_identifier(message_addr))
             message_type = ScKeynodes.resolve(
@@ -60,23 +59,21 @@ class TaskAgent(ScAgentClassic):
                 self.logger.info(
                     f"TaskAgent: the message isn’t about task")
                 return ScResult.OK
-
             
             
-            
-            idtf = ScKeynodes.resolve("nrel_idtf", sc_type.CONST_NODE_NON_ROLE)
             answer_phrase = ScKeynodes.resolve(
                 "get_task_answer_phrase", sc_type.CONST_NODE_CLASS)
-            rrel_entity = ScKeynodes.resolve("rrel_entity", sc_type.CONST_NODE_ROLE)
             rrel_response = ScKeynodes.resolve(
                 "rrel_response", sc_type.CONST_NODE_ROLE)
 
-            theme_addr = self.get_entity_addr(
-                message_addr, rrel_entity)
-            idtff = get_element_system_identifier(theme_addr)
-            self.logger.info(f"Detected entity {idtff}")
+            theme_addr, level_addr = self.get_entity_addr(message_addr)
+            self.logger.info(f"{get_element_system_identifier(level_addr)}")
+            idtf = get_element_system_identifier(theme_addr)
+            self.logger.info(f"Detected entity {idtf}")
 
-            if not theme_addr.is_valid() or not idtff:
+            level = get_link_content_data(self.search_lang_value_by_nrel_identifier(level_addr, "nrel_idtf")) if level_addr else "нормально"
+
+            if not theme_addr.is_valid() or not idtf:
                 self.set_unknown_theme_link(action_node, message_addr, rrel_response)
                 return ScResult.OK
 
@@ -86,7 +83,7 @@ class TaskAgent(ScAgentClassic):
             tasks = self.get_tasks_of_theme(theme_addr)
             links = [task.get(2) for task in tasks]
             
-            task = self.select_task(links, "нормально")
+            task = self.select_task(links, level)
             
             _idtf = get_link_content_data(self.search_lang_value_by_nrel_identifier(task, "nrel_idtf"))
             _main_idtf = get_link_content_data(self.get_ru_main_identifier(task))
@@ -110,6 +107,10 @@ class TaskAgent(ScAgentClassic):
             generate_action_result(action_node, link)
 
             return ScResult.OK
+
+        try:
+            
+            ...
 
 
         except Exception as e:
@@ -153,12 +154,9 @@ class TaskAgent(ScAgentClassic):
         return search_element_by_non_role_relation(
             src=entity_addr, nrel_node=idtf)
 
-    def get_entity_addr(self, message_addr: ScAddr, rrel_entity: ScAddr) -> ScAddr:
+    def get_entity_addr(self, message_addr: ScAddr):
         rrel_entity = ScKeynodes.resolve("rrel_entity", sc_type.CONST_NODE_ROLE)
-        concept_theme = ScKeynodes.resolve(
-            "concept_theme", sc_type.CONST_NODE_CLASS)
         template = ScTemplate()
-        # entity node or link
         template.quintuple(
             message_addr,
             sc_type.VAR_PERM_POS_ARC,
@@ -168,10 +166,28 @@ class TaskAgent(ScAgentClassic):
         )
         search_results = search_by_template(template)
         if len(search_results) == 0:
-            return ScAddr(0)
+            return ScAddr(0), None
         entity = search_results[0][2]
+        self.logger.info(f"entity in get_entity {get_element_system_identifier(entity)}")
         if len(search_results) == 1:
-            return entity
+            
+            rrel_task_level = ScKeynodes.resolve("rrel_task_level", sc_type.CONST_NODE_ROLE)
+            template = ScTemplate()
+            template.quintuple(
+                message_addr,
+                sc_type.VAR_PERM_POS_ARC,
+                sc_type.VAR,
+                sc_type.VAR_PERM_POS_ARC,
+                rrel_task_level,
+            )
+            search_results = search_by_template(template)
+
+            if len(search_results) == 0:
+                return entity, None
+            self.logger.info(f"level in get_entity {get_element_system_identifier(search_results)}")
+            self.logger.info(f"level in get_entity {get_element_system_identifier(search_results[0][2])}")
+
+            return entity, search_results[0][2]
         else:
             self.logger.info("More then 1 arg")
             return ScResult.ERROR
