@@ -81,9 +81,17 @@ class TaskAgent(ScAgentClassic):
                 theme_addr, rrel_response, answer_phrase)
             
             tasks = self.get_tasks_of_theme(theme_addr)
+            if not tasks:
+                self.set_unknown_theme_link(action_node, message_addr, rrel_response,
+                                            "Я не знаю задач на эту тему")
+                return ScResult.OK
             links = [task.get(2) for task in tasks]
             
             task = self.select_task(links, level)
+            if not task:
+                self.set_unknown_theme_link(action_node, message_addr, rrel_response,
+                                            "Я не знаю задач на эту тему с такой сложностью")
+                return ScResult.OK
             
             _idtf = get_link_content_data(self.search_lang_value_by_nrel_identifier(task, "nrel_idtf"))
             _main_idtf = get_link_content_data(self.get_ru_main_identifier(task))
@@ -114,8 +122,8 @@ class TaskAgent(ScAgentClassic):
              return ScResult.ERROR
 
 
-    def set_unknown_theme_link(self, action_node: ScAddr, message_addr: ScAddr, rrel_response: ScAddr) -> None:
-        text = "Извините, но к сожалению, я не знаю эту тему"
+    def set_unknown_theme_link(self, action_node: ScAddr, message_addr: ScAddr, rrel_response: ScAddr, text: str = None) -> None:
+        text = text if text else "Извините, но к сожалению, я не знаю эту тему"
         link = generate_link(text, ScLinkContentType.STRING, link_type=sc_type.CONST_NODE_LINK)
         edge = generate_connector(sc_type.CONST_COMMON_ARC, message_addr, link)
         generate_connector(sc_type.CONST_PERM_POS_ARC, rrel_response, edge)
@@ -191,6 +199,8 @@ class TaskAgent(ScAgentClassic):
     def select_task(self, tasks: List[ScAddr], level: str):
         level_tasks = [task if self.get_task_level(task) == level else None for task in tasks]
         result_tasks = [task for task in level_tasks if task is not None]
+        if not result_tasks:
+            return None
         return choice(result_tasks)
         
         
