@@ -1,6 +1,7 @@
 easy_task_level
 <- sc_node_class;
 <- class;
+<- concept_wit_entity;
 => nrel_main_idtf:
 	[легко]
 	(* <- lang_ru;; *);;

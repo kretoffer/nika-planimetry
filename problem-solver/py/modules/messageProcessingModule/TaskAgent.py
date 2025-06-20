@@ -49,9 +49,10 @@ class TaskAgent(ScAgentClassic):
 
     def run(self, action_node: ScAddr) -> ScResult:
         self.logger.info("TaskAgent started")
-        if True:
+
+        try:
+            
             message_addr = get_action_arguments(action_node, 1)[0]
-            self.logger.info(get_element_system_identifier(message_addr))
             message_type = ScKeynodes.resolve(
                 "concept_message_about_task_of_theme", sc_type.CONST_NODE_CLASS)
 
@@ -67,11 +68,10 @@ class TaskAgent(ScAgentClassic):
                 "rrel_response", sc_type.CONST_NODE_ROLE)
 
             theme_addr, level_addr = self.get_entity_addr(message_addr)
-            self.logger.info(f"{get_element_system_identifier(level_addr)}")
             idtf = get_element_system_identifier(theme_addr)
             self.logger.info(f"Detected entity {idtf}")
 
-            level = get_link_content_data(self.search_lang_value_by_nrel_identifier(level_addr, "nrel_idtf")) if level_addr else "нормально"
+            level = get_link_content_data(level_addr) if level_addr else "нормально"
 
             if not theme_addr.is_valid() or not idtf:
                 self.set_unknown_theme_link(action_node, message_addr, rrel_response)
@@ -107,10 +107,6 @@ class TaskAgent(ScAgentClassic):
             generate_action_result(action_node, link)
 
             return ScResult.OK
-
-        try:
-            
-            ...
 
 
         except Exception as e:
@@ -168,7 +164,6 @@ class TaskAgent(ScAgentClassic):
         if len(search_results) == 0:
             return ScAddr(0), None
         entity = search_results[0][2]
-        self.logger.info(f"entity in get_entity {get_element_system_identifier(entity)}")
         if len(search_results) == 1:
             
             rrel_task_level = ScKeynodes.resolve("rrel_task_level", sc_type.CONST_NODE_ROLE)
@@ -184,8 +179,6 @@ class TaskAgent(ScAgentClassic):
 
             if len(search_results) == 0:
                 return entity, None
-            self.logger.info(f"level in get_entity {get_element_system_identifier(search_results)}")
-            self.logger.info(f"level in get_entity {get_element_system_identifier(search_results[0][2])}")
 
             return entity, search_results[0][2]
         else:
