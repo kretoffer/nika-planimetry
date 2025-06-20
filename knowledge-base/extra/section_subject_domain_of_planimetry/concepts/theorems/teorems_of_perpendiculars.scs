@@ -1,0 +1,20 @@
+teorem_of_perpendicular
+<- subject_domain_of_perpendiculars;
+=> nrel_main_idtf: [теорема о перпендикуляре] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [через точку, лежащую на данной прямой, можно провести прямую, перпендикулярную этой прямой, и только одну. Через точку, не лежащую на данной прямой, можно провести прямую, перпендикулярную этой прямой, и притом только одну]
+    (* <- lang_ru;; *);;
+    
+theorem_on_two_lines_perpendicular_to_a_third
+<- subject_domain_of_perpendiculars;
+=> nrel_main_idtf: [Теорема (о двух прямых, перпендикулярных третьей)] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [на плоскости две прямые, перпендикулярные третьей, параллельны между собой]
+    (* <- lang_ru;; *);;
+
