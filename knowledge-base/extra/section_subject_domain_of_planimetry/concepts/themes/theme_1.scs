@@ -4,12 +4,13 @@ theme_1
 -> rrel_inclusion: concept_straight;
 -> rrel_inclusion: concept_beam;
 -> rrel_inclusion: concept_broken_line;
+-> rrel_inclusion: concept_segment;
 -> rrel_inclusion: axiom_of_measurement_of_segments;
 -> rrel_inclusion: axiom_of_postponing_segments;
 <- concept_wit_entity;
 <- concept_teorem;
 <- concept_theme;
-=> nrel_note: 
+=> nrel_definition: 
     [Эта тема включает в себя определения простейших геометрических фигур, таких как прямая, луч, отрезок, ломаная. Также аксиому измерения отрезков и аксиому откладывания отрезков.]
     (* <- lang_ru;; *);;
 

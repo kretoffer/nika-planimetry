@@ -33,7 +33,7 @@ logging.basicConfig(
 
 class ThemeAgent(ScAgentClassic):
     def __init__(self):
-        super().__init__("action_get_task")
+        super().__init__("action_get_lesson")
 
     def on_event(self, event_element: ScAddr, event_edge: ScAddr, action_element: ScAddr) -> ScResult:
         result = self.run(action_element)
@@ -61,13 +61,19 @@ class ThemeAgent(ScAgentClassic):
             answer_phrase = ScKeynodes.resolve(
                 "about_theme_answer_phrase", sc_type.CONST_NODE_CLASS)
             rrel_response = ScKeynodes.resolve(
-                "nrel_note", sc_type.CONST_NODE_NON_ROLE)
+                "nrel_definition", sc_type.CONST_NODE_NON_ROLE)
 
             theme_addr = self.get_entity_addr(message_addr)
             if not theme_addr:
                 return ScResult.ERROR
             
             idtf = get_element_system_identifier(theme_addr)
+            
+            if not theme_addr.is_valid() or not idtf:
+                self.set_unknown_theme_link(action_node, message_addr, rrel_response)
+                return ScResult.OK
+            
+            
             if not idtf.startswith("theme_"):
                 self.logger.info("ThemeAgent: the message isn't about theme")
                 return ScResult.OK
@@ -78,14 +84,28 @@ class ThemeAgent(ScAgentClassic):
             inclusions = self.search_inclusion(theme_addr)
             links = [inclusion.get(2) for inclusion in inclusions]
 
-            self.logger.info(f"Detected {len(links)} inclusions")
+            if len_links := len(links) == 0:
+                self.set_unknown_theme_link(action_node, message_addr, rrel_response,
+                                            f"{get_link_content_data(self.get_ru_main_identifier(theme_addr))} не является темой")
+                return ScResult.OK
 
-            text = "text"
+            self.logger.info(f"Detected {len_links} inclusions")
+
+            text = f"<h3><b>{get_link_content_data(self.get_ru_main_identifier(theme_addr))}</b> включает в себя:</h3><ul>"
+
+            for el in links:
+                text += f"<li>{get_link_content_data(self.get_ru_main_identifier(el))}</li>"
+            text += "</ul><br>"
+
+            for el in links:
+                text += f"<b>{get_link_content_data(self.get_ru_main_identifier(el))}</b> -" \
+                        f"{get_link_content_data(self.get_ru_main_note(el))}<br>"
 
 
             link = generate_link(text, ScLinkContentType.STRING, link_type=sc_type.CONST_NODE_LINK)
             edge = generate_connector(sc_type.CONST_COMMON_ARC, theme_addr, link)
             generate_connector(sc_type.CONST_PERM_POS_ARC, rrel_response, edge)
+            generate_action_result(action_node, link)
 
             return ScResult.OK
 
@@ -93,6 +113,7 @@ class ThemeAgent(ScAgentClassic):
         except Exception as e:
              self.logger.info(f"ThemeAgent: finished with an error {e}")
              return ScResult.ERROR
+    
         
     def set_unknown_theme_link(self, action_node: ScAddr, message_addr: ScAddr, rrel_response: ScAddr, text: str = None) -> None:
         text = text if text else "Извините, но к сожалению, я не знаю эту тему"
@@ -105,7 +126,8 @@ class ThemeAgent(ScAgentClassic):
         return self.search_lang_value_by_nrel_identifier(entity_addr, "nrel_main_idtf", "lang_ru")
     
     def get_ru_main_note(self, entity_addr: ScAddr) -> ScAddr:
-        return self.search_lang_value_by_nrel_identifier(entity_addr, "nrel_note", "lang_ru")
+        note = self.search_lang_value_by_nrel_identifier(entity_addr, "nrel_note", "lang_ru")
+        return note if note.is_valid() else self.search_lang_value_by_nrel_identifier(entity_addr, "nrel_definition", "lang_ru")
     
     def search_lang_value_by_nrel_identifier(self, entity_addr: ScAddr, idtf_str: str = "nrel_main_idtf", lang_str: str = "lang_ru") -> ScAddr:
         idtf = ScKeynodes.resolve(
@@ -158,7 +180,7 @@ class ThemeAgent(ScAgentClassic):
         )
         search_results = search_by_template(template)
         if len(search_results) == 0:
-            return None
+            return ScAddr(0)
         entity = search_results[0][2]
         if len(search_results) == 1:
             return entity

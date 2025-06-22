@@ -6,3 +6,7 @@ from .ThemeAgent import ThemeAgent
 class MessageProcessingModule(ScModule):
     def __init__(self):
         super().__init__(TaskAgent(), ThemeAgent())
+
+class MessageProcessingModule2(ScModule):
+    def __init__(self):
+        super().__init__(ThemeAgent())
