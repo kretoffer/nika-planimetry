@@ -1,6 +1,11 @@
 theme_1
 => nrel_main_idtf: [Тема. Простейшие геометрические фигуры] (* <- lang_ru;; *);
-=> nrel_idtf: [простейшие геометрические фигуры]
+=> nrel_idtf: [простейшие геометрические фигуры] (* <- lang_ru;; *);
+-> rrel_inclusion: concept_straight;
+-> rrel_inclusion: concept_beam;
+-> rrel_inclusion: concept_broken_line;
+-> rrel_inclusion: axiom_of_measurement_of_segments;
+-> rrel_inclusion: axiom_of_postponing_segments;
 <- concept_wit_entity;
 <- concept_teorem;
 <- concept_theme;

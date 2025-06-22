@@ -25,16 +25,13 @@ from sc_kpm.utils.action_utils import (
 )
 from sc_kpm import ScKeynodes
 
-from typing import List
-from random import choice
-
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s | %(name)s | %(message)s", datefmt="[%d-%b-%y %H:%M:%S]"
 )
 
 
-class TaskAgent(ScAgentClassic):
+class ThemeAgent(ScAgentClassic):
     def __init__(self):
         super().__init__("action_get_task")
 
@@ -42,85 +39,61 @@ class TaskAgent(ScAgentClassic):
         result = self.run(action_element)
         is_successful = result == ScResult.OK
         finish_action_with_status(action_element, is_successful)
-        self.logger.info("TaskAgent finished %s",
+        self.logger.info("ThemeAgent finished %s",
                          "successfully" if is_successful else "unsuccessfully")
         return result
 
     def run(self, action_node: ScAddr) -> ScResult:
-        self.logger.info("TaskAgent started")
+        self.logger.info("ThemeAgent started")
 
         try:
             
             message_addr = get_action_arguments(action_node, 1)[0]
             message_type = ScKeynodes.resolve(
-                "concept_message_about_task_of_theme", sc_type.CONST_NODE_CLASS)
+                "concept_message_about_entity", sc_type.CONST_NODE_CLASS)
 
             if not check_connector(sc_type.VAR_PERM_POS_ARC, message_type, message_addr):
                 self.logger.info(
-                    f"TaskAgent: the message isn’t about task")
+                    f"ThemeAgent: the message isn’t about theme")
                 return ScResult.OK
             
             
             answer_phrase = ScKeynodes.resolve(
-                "get_task_answer_phrase", sc_type.CONST_NODE_CLASS)
+                "about_theme_answer_phrase", sc_type.CONST_NODE_CLASS)
             rrel_response = ScKeynodes.resolve(
-                "rrel_response", sc_type.CONST_NODE_ROLE)
+                "nrel_note", sc_type.CONST_NODE_NON_ROLE)
 
-            theme_addr, level_addr = self.get_entity_addr(message_addr)
+            theme_addr = self.get_entity_addr(message_addr)
+            if not theme_addr:
+                return ScResult.ERROR
+            
             idtf = get_element_system_identifier(theme_addr)
+            if not idtf.startswith("theme_"):
+                self.logger.info("ThemeAgent: the message isn't about theme")
+                return ScResult.OK
             self.logger.info(f"Detected entity {idtf}")
 
-            level = get_link_content_data(level_addr) if level_addr else "нормально"
+            self.clear_previous_answer(theme_addr, rrel_response, answer_phrase)
 
-            if not theme_addr.is_valid() or not idtf:
-                self.set_unknown_theme_link(action_node, message_addr, rrel_response)
-                return ScResult.OK
+            inclusions = self.search_inclusion(theme_addr)
+            links = [inclusion.get(2) for inclusion in inclusions]
 
-            self.clear_previous_answer(
-                message_addr, rrel_response, answer_phrase)
-            
-            tasks = self.get_tasks_of_theme(theme_addr)
-            if not tasks:
-                self.set_unknown_theme_link(action_node, message_addr, rrel_response,
-                                            "Я не знаю задач на эту тему")
-                return ScResult.OK
-            links = [task.get(2) for task in tasks]
-            
-            task = self.select_task(links, level)
-            if not task:
-                self.set_unknown_theme_link(action_node, message_addr, rrel_response,
-                                            "Я не знаю задач на эту тему с такой сложностью")
-                return ScResult.OK
-            
-            _idtf = get_link_content_data(self.search_lang_value_by_nrel_identifier(task, "nrel_idtf"))
-            _main_idtf = get_link_content_data(self.get_ru_main_identifier(task))
-            _level = get_link_content_data(self.search_lang_value_by_nrel_identifier(task, "nrel_task_level"))
-            _condition = get_link_content_data(self.search_lang_value_by_nrel_identifier(task, "nrel_condition"))
+            self.logger.info(f"Detected {len(links)} inclusions")
 
+            text = "text"
 
-
-            text = f"""
-                <h2>{_idtf}</h2>
-                <h3>Уровень задачи: <b>{_level}</b></h3>
-
-                {_condition}
-                <br><br>
-                Если будут проблемы с решением, напиши мне <i>"Как решить {_main_idtf}"</i> и я тебе помогу
-            """
 
             link = generate_link(text, ScLinkContentType.STRING, link_type=sc_type.CONST_NODE_LINK)
-            edge = generate_connector(sc_type.CONST_COMMON_ARC, message_addr, link)
+            edge = generate_connector(sc_type.CONST_COMMON_ARC, theme_addr, link)
             generate_connector(sc_type.CONST_PERM_POS_ARC, rrel_response, edge)
-            generate_action_result(action_node, link)
 
             return ScResult.OK
 
 
         except Exception as e:
-             self.logger.info(f"TaskAgent: finished with an error {e}")
+             self.logger.info(f"ThemeAgent: finished with an error {e}")
              return ScResult.ERROR
-
-
+        
     def set_unknown_theme_link(self, action_node: ScAddr, message_addr: ScAddr, rrel_response: ScAddr, text: str = None) -> None:
         text = text if text else "Извините, но к сожалению, я не знаю эту тему"
         link = generate_link(text, ScLinkContentType.STRING, link_type=sc_type.CONST_NODE_LINK)
@@ -128,9 +101,11 @@ class TaskAgent(ScAgentClassic):
         generate_connector(sc_type.CONST_PERM_POS_ARC, rrel_response, edge)
         generate_action_result(action_node, link)
 
-
     def get_ru_main_identifier(self, entity_addr: ScAddr) -> ScAddr:
         return self.search_lang_value_by_nrel_identifier(entity_addr, "nrel_main_idtf", "lang_ru")
+    
+    def get_ru_main_note(self, entity_addr: ScAddr) -> ScAddr:
+        return self.search_lang_value_by_nrel_identifier(entity_addr, "nrel_note", "lang_ru")
     
     def search_lang_value_by_nrel_identifier(self, entity_addr: ScAddr, idtf_str: str = "nrel_main_idtf", lang_str: str = "lang_ru") -> ScAddr:
         idtf = ScKeynodes.resolve(
@@ -156,6 +131,20 @@ class TaskAgent(ScAgentClassic):
                 return idtf
         return search_element_by_non_role_relation(
             src=entity_addr, nrel_node=idtf)
+    
+    def search_inclusion(self, theme: ScAddr):
+        rrel_inclusion = ScKeynodes.resolve(
+            "rrel_inclusion", sc_type.CONST_NODE_ROLE)
+        template = ScTemplate()
+        template.quintuple(
+            theme,
+            sc_type.VAR_PERM_POS_ARC,
+            sc_type.VAR_NODE_LINK,
+            sc_type.VAR_PERM_POS_ARC,
+            rrel_inclusion
+        )
+        search_results = search_by_template(template)
+        return search_results
 
     def get_entity_addr(self, message_addr: ScAddr):
         rrel_entity = ScKeynodes.resolve("rrel_entity", sc_type.CONST_NODE_ROLE)
@@ -169,54 +158,14 @@ class TaskAgent(ScAgentClassic):
         )
         search_results = search_by_template(template)
         if len(search_results) == 0:
-            return ScAddr(0), None
+            return None
         entity = search_results[0][2]
         if len(search_results) == 1:
-            
-            rrel_task_level = ScKeynodes.resolve("rrel_task_level", sc_type.CONST_NODE_ROLE)
-            template = ScTemplate()
-            template.quintuple(
-                message_addr,
-                sc_type.VAR_PERM_POS_ARC,
-                sc_type.VAR,
-                sc_type.VAR_PERM_POS_ARC,
-                rrel_task_level,
-            )
-            search_results = search_by_template(template)
-
-            if len(search_results) == 0:
-                return entity, None
-
-            return entity, search_results[0][2]
+            return entity
         else:
             self.logger.info("More then 1 arg")
-            return ScResult.ERROR
-        
-    def get_task_level(self, task: ScAddr) -> str:
-        return get_link_content_data(self.search_lang_value_by_nrel_identifier(task, "nrel_task_level", "lang_ru"))
-        
-    def select_task(self, tasks: List[ScAddr], level: str):
-        level_tasks = [task if self.get_task_level(task) == level else None for task in tasks]
-        result_tasks = [task for task in level_tasks if task is not None]
-        if not result_tasks:
             return None
-        return choice(result_tasks)
         
-        
-    def get_tasks_of_theme(self, theme: ScAddr):
-        nrel_task_theme = ScKeynodes.resolve(
-            "nrel_task_theme", sc_type.CONST_NODE_NON_ROLE)
-        template = ScTemplate()
-        template.quintuple(
-            theme,
-            sc_type.VAR_COMMON_ARC,
-            sc_type.VAR_NODE_LINK,
-            sc_type.VAR_PERM_POS_ARC,
-            nrel_task_theme
-        )
-        search_results = search_by_template(template)
-        return search_results
-
     def clear_previous_answer(self, entity, nrel_response, answer_phrase):
         message_answer_set = ScSet(set_node=answer_phrase)
         message_answer_set.clear()

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GWF version="2.0">
     <staticSector>
-        <node type="node/const/perm/group" idtf="concept_message_about_theme" shapeColor="193" id="95763392" parent="0" left="0" top="0" right="201.375" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="306.5" y="350.5" haveBus="false" idtf_pos="0">
+        <node type="node/const/perm/group" idtf="concept_message_about_about_solving_problem" shapeColor="193" id="95763392" parent="0" left="0" top="0" right="303.344" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="306.5" y="350.5" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
         <node type="node/const/perm/general" idtf="" shapeColor="0" id="93927312" parent="0" x="309.5" y="525.5" haveBus="false" idtf_pos="0">
-            <content type="1" mime_type="content/term" content_visibility="true" file_name=""><![CDATA[Сообщение о теме]]></content>
+            <content type="1" mime_type="content/term" content_visibility="true" file_name=""><![CDATA[Сообщение о решении задачи]]></content>
         </node>
         <node type="node/const/perm/general" idtf="" shapeColor="0" id="95179488" parent="0" x="651.5" y="349.5" haveBus="false" idtf_pos="0">
-            <content type="1" mime_type="content/term" content_visibility="true" file_name=""><![CDATA[about_theme]]></content>
+            <content type="1" mime_type="content/term" content_visibility="true" file_name=""><![CDATA[about_solving_problem]]></content>
         </node>
         <node type="node/const/perm/group" idtf="lang_ru" shapeColor="0" id="96560832" parent="0" left="0" top="0" right="53.6406" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="660.5" y="521.5" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>

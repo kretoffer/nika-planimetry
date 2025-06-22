@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GWF version="2.0">
     <staticSector>
-        <node type="node/const/perm/group" idtf="concept_message_about_theme" shapeColor="0" id="95181920" parent="95705440" left="0" top="0" right="201.375" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="190.223" y="148.352" haveBus="false" idtf_pos="0">
+        <node type="node/const/perm/group" idtf="concept_message_about_about_solving_problem" shapeColor="0" id="95181920" parent="95705440" left="0" top="0" right="303.344" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="190.223" y="148.352" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
         <node type="node/var/perm/general" idtf="_message" shapeColor="0" id="94648512" parent="95705440" left="0" top="0" right="67.125" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="92.223" y="236.352" haveBus="false" idtf_pos="0">
@@ -28,7 +28,7 @@
         <pair type="pair/var/pos/perm/orient/membership" idtf="" shapeColor="0" id="95363632" parent="95705440" id_b="95181920" id_e="94648512" b_x="190.223" b_y="148.352" e_x="92.223" e_y="236.352" dotBBalance="0" dotEBalance="0">
             <points/>
         </pair>
-        <contour type="contour/const/perm" idtf="" shapeColor="0" id="95705440" parent="0">
+        <contour type="contour/const/perm" idtf="" shapeColor="255" id="95705440" parent="0">
             <points>
                 <point x="54.223" y="123.352"/>
                 <point x="459.223" y="126.352"/>
@@ -36,7 +36,7 @@
                 <point x="55.223" y="279.352"/>
             </points>
         </contour>
-        <node type="node/const/perm/group" idtf="concept_message_about_theme" shapeColor="0" id="96637072" parent="96031920" left="0" top="0" right="201.375" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="250.223" y="536.352" haveBus="false" idtf_pos="0">
+        <node type="node/const/perm/group" idtf="concept_message_about_about_solving_problem" shapeColor="0" id="96637072" parent="96031920" left="0" top="0" right="303.344" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="250.223" y="536.352" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
         <node type="node/const/perm/group" idtf="concept_atomic_message" shapeColor="0" id="95717584" parent="96031920" left="0" top="0" right="163.094" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="248.223" y="677.352" haveBus="false" idtf_pos="0">
@@ -71,10 +71,10 @@
                 <point x="24.223" y="730.352"/>
             </points>
         </contour>
-        <node type="node/const/perm/group" idtf="concept_phrase_about_theme" shapeColor="0" id="93997632" parent="0" left="0" top="0" right="189.313" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="803.223" y="416.352" haveBus="false" idtf_pos="0">
+        <node type="node/const/perm/general" idtf="lr_message_about_about_solving_problem" shapeColor="0" id="93868432" parent="0" left="0" top="0" right="264.406" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="505.223" y="420.352" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
-        <node type="node/const/perm/general" idtf="lr_message_about_theme" shapeColor="0" id="93868432" parent="0" left="0" top="0" right="162.438" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="505.223" y="420.352" haveBus="false" idtf_pos="0">
+        <node type="node/const/perm/group" idtf="concept_phrase_about_about_solving_problem" shapeColor="0" id="93997632" parent="0" left="0" top="0" right="291.281" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="803.223" y="416.352" haveBus="false" idtf_pos="0">
             <content type="0" mime_type="" content_visibility="false" file_name=""/>
         </node>
         <node type="node/const/perm/group" idtf="concept_answer_on_standard_message_rule" shapeColor="0" id="93857376" parent="0" left="0" top="0" right="276.016" bottom="26" textColor="164" text_angle="0" text_font="Times New Roman [Arial]" font_size="10" x="504.223" y="301.352" haveBus="false" idtf_pos="0">
