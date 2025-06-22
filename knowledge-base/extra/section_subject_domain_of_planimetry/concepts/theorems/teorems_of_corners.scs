@@ -3,8 +3,8 @@ property_of_adjacent_angles
 => nrel_main_idtf:
     [теорема (cвойство смежных углов)]
     (* <- lang_ru;; *);
-=> nrel_main_idtf: [свойство смежных углов] (* <- lang_ru;; *);
-=> nrel_main_idtf: [теорема о свойстве смежных углов] (* <- lang_ru;; *);
+=> nrel_idtf: [свойство смежных углов] (* <- lang_ru;; *);
+=> nrel_idtf: [теорема о свойстве смежных углов] (* <- lang_ru;; *);
 <- concept_wit_entity;
 <- concept_teorem;
 <- concept_theme;
@@ -18,8 +18,8 @@ property_of_vertical_angles
 => nrel_main_idtf:
     [теорема (cвойство вертикальных углов)]
     (* <- lang_ru;; *);
-=> nrel_main_idtf: [свойство вертикальных углов] (* <- lang_ru;; *);
-=> nrel_main_idtf: [теорема о свойстве вертикальных углов] (* <- lang_ru;; *);
+=> nrel_idtf: [свойство вертикальных углов] (* <- lang_ru;; *);
+=> nrel_idtf: [теорема о свойстве вертикальных углов] (* <- lang_ru;; *);
 <- concept_wit_entity;
 <- concept_teorem;
 <- concept_theme;
@@ -27,3 +27,27 @@ property_of_vertical_angles
     [вертикальные углы равны]
     (* <- lang_ru;; *);;
 
+teorem_about_angles_with_corresponding_parallel_sides
+<- subject_domain_of_corners_with_corresponding_parallel_sides;
+=> nrel_main_idtf:
+    [теорема (об углах с соответственно параллельными сторонами)]
+    (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [углы с соответственно параллельными сторонами или равны (если оба острые или оба тупые), или в сумме составляют 180° (если один острый, а другой тупой)]
+    (* <- lang_ru;; *);;
+    
+
+teorem_about_angles_with_corresponding_perpendicular_sides
+<- subject_domain_of_corners_with_corresponding_perpendicular_sides;
+=> nrel_main_idtf:
+    [теорема (об углах с соответственно перпендикулярными сторонами)]
+    (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [углы с соответственно перпендикулярными сторонами или равны (если оба острые или оба тупые), или в сумме составляют 180° (если один острый, а другой тупой)]
+    (* <- lang_ru;; *);;

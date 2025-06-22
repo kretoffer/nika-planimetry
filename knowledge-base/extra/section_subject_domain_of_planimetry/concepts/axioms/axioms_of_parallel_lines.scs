@@ -1,0 +1,15 @@
+axiom_of_measurement_of_parallel_lines
+<- subject_domain_of_segments;
+=> nrel_main_idtf:
+    [аксиома параллельных прямых]
+    (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_axiom;
+<- concept_theme;
+=> nrel_note: 
+    [через точку, не лежащую на данной прямой, можно провести только одну прямую, параллельную данной. Предположение о пересечении прямых не верно, а верно ему противоположное : прямые не пересекаются, то есть параллельны]
+    (* <- lang_ru;; *);;
+
+
+
+

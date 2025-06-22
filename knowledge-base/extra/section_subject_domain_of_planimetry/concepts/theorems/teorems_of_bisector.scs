@@ -1,0 +1,9 @@
+teorem_about_corner_bisector
+<- subject_domain_of_parallel_lines;
+=> nrel_main_idtf: [теорема (о биссектрисе угла)] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [любая точка биссектрисы угла равноудалена от сторон угла. Если точка внутри угла равноудалена от сторон угла, то она лежит на биссектрисе этого угла.]
+    (* <- lang_ru;; *);;

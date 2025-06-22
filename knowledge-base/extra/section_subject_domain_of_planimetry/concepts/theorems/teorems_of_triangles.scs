@@ -1,0 +1,208 @@
+teorem_the_sign_of_equality_of_triangles
+<- subject_domain_of_triangles;
+=> nrel_main_idtf: [признаки равенства треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [равенство треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [признак равенства треугольников] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если две стороны и угол между ними одного треугольника соответственно равны двум сторонам и углу между ними другого треугольника, то такие треугольники равны. Если сторона и два прилежащих к ней угла одного треугольника соответственно равны стороне и двум прилежащим к ней углам другого треугольника, то такие треугольники равны. Если три стороны одного треугольника соответственно равны трем сторонам другого треугольника, то такие треугольники равны]
+    (* <- lang_ru;; *);;
+
+
+teorem_the_first_sign_of_equality_of_triangles
+<- subject_domain_of_triangles;
+=> nrel_main_idtf: [теорема (первый признак равенства треугольников)] (* <- lang_ru;; *);
+=> nrel_idtf: [первый признак равенства треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [равенство треугольников по двум сторонам и углу] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если две стороны и угол между ними одного треугольника соответственно равны двум сторонам и углу между ними другого треугольника, то такие треугольники равны]
+    (* <- lang_ru;; *);;
+
+teorem_the_second_sign_of_equality_of_triangles
+<- subject_domain_of_triangles;
+=> nrel_main_idtf: [теорема (второй признак равенства треугольников)] (* <- lang_ru;; *);
+=> nrel_idtf: [второй признак равенства треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [равенство треугольников по стороне и двум углам] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если сторона и два прилежащих к ней угла одного треугольника соответственно равны стороне и двум прилежащим к ней углам другого треугольника, то такие треугольники равны]
+    (* <- lang_ru;; *);;
+
+teorem_the_third_sign_of_equality_of_triangles
+<- subject_domain_of_triangles;
+=> nrel_main_idtf: [теорема (третий признак равенства треугольников)] (* <- lang_ru;; *);
+=> nrel_idtf: [третий признак равенства треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [равенство треугольников по трем сторонам] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если три стороны одного треугольника соответственно равны трем сторонам другого треугольника, то такие треугольники равны]
+    (* <- lang_ru;; *);;
+
+teorem_about_the_property_of_angles_at_the_base
+<- subject_domain_of_triangles;
+=> nrel_main_idtf: [теорема (о свойстве углов при основании)] (* <- lang_ru;; *);
+=> nrel_idtf: [свойство углов при основании равнобедренного треугольника] (* <- lang_ru;; *);
+=> nrel_idtf: [свойство углов при основании] (* <- lang_ru;; *);
+=> nrel_idtf: [теорема (о свойстве углов при основании равнобедренного треугольника)] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [в равнобедренном треугольнике углы при основании равны]
+    (* <- lang_ru;; *);;
+    
+teorem_isosceles_triangle_sign
+<- subject_domain_of_triangles;
+=> nrel_main_idtf: [теорема (признак равнобедренного треугольника)] (* <- lang_ru;; *);
+=> nrel_idtf: [признак равнобедренного треугольника] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если в треугольнике два угла равны, то он равнобедренный, так же если в треугольнике высота является медианой, то треугольник равнобедренный, и если в треугольнике высота является биссектрисой, то треугольник равнобедренный]
+    (* <- lang_ru;; *);;
+    
+teorem_about_properties_of_bisector_of_an_equifemoral_triangle
+<- subject_domain_of_triangles;
+=> nrel_main_idtf: [теорема (о свойстве биссектрисы равнобедренного треугольника)] (* <- lang_ru;; *);
+=> nrel_idtf: [свойство биссектрисы равнобедренного треугольника] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [в равнобедренном треугольнике биссектриса, проведенная к основанию, является его медианой и высотой]
+    (* <- lang_ru;; *);;
+    
+teorem_about_external_angle_of_triangle
+<- subject_domain_of_triangles;
+=> nrel_main_idtf: [теорема (о внешнем угле треугольника)] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [внешний угол треугольника равен сумме двух внутренних углов, не смежных с ним]
+    (* <- lang_ru;; *);;
+    
+teorem_about_ratio_of_triangle
+<- subject_domain_of_triangles;
+=> nrel_main_idtf: [теорема (о соотношении между сторонами и углами в треугольнике)] (* <- lang_ru;; *);
+=> nrel_idtf: [соотношение сторон и углов треугольника] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [в треугольнике против большей стороны лежит больший угол, а против большего угла лежит большая сторона]
+    (* <- lang_ru;; *);;
+        
+teorem_about_inequality_of_triangle
+<- subject_domain_of_triangles;
+=> nrel_main_idtf: [теорема (о неравенстве треугольника)] (* <- lang_ru;; *);
+=> nrel_idtf: [неравенство треугольника] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [любая сторона треугольника меньше суммы двух других его сторон]
+    (* <- lang_ru;; *);;
+
+
+teorem_the_sign_of_equality_of_right_triangles
+<- subject_domain_of_triangles;
+<- subject_domain_of_right_triangles;
+=> nrel_main_idtf: [признаки равенства прямоугольных треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [равенство прямоугольных треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [признак равенства прямоугольных треугольников] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если катеты одного прямоугольного треугольника соответственно равны двум катетам другого прямоугольного треугольника, то такие треугольники равны. Если катет и прилежащий к нему острый угол одного прямоугольного треугольника соответственно равны катету и прилежащему к нему острому углу другого прямоугольного треугольника, то такие треугольники равны. Если катет и противолежащий острый угол одного прямоугольного треугольника соответственно равны катету и противолежащему острому углу другого прямоугольного треугольника, то такие треугольники равны]
+    (* <- lang_ru;; *);;
+
+
+teorem_the_first_sign_of_equality_of_right_triangles
+<- subject_domain_of_triangles;
+<- subject_domain_of_right_triangles;
+=> nrel_main_idtf: [первый признак (по двум катетам)] (* <- lang_ru;; *);
+=> nrel_idtf: [первый признак равенства прямоугольных треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [равенство прямоугольных треугольников по двум катетам] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если катеты одного прямоугольного треугольника соответственно равны двум катетам другого прямоугольного треугольника, то такие треугольники равны]
+    (* <- lang_ru;; *);;
+
+teorem_the_second_sign_of_equality_of_right_triangles
+<- subject_domain_of_triangles;
+<- subject_domain_of_right_triangles;
+=> nrel_main_idtf: [второй признак (по катету и прилежащему острому углу)] (* <- lang_ru;; *);
+=> nrel_idtf: [второй признак равенства прямоугольных треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [равенство прямоугольных треугольников по катету и острому углу] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если катет и прилежащий к нему острый угол одного прямоугольного треугольника соответственно равны катету и прилежащему к нему острому углу другого прямоугольного треугольника, то такие треугольники равны]
+    (* <- lang_ru;; *);;
+
+teorem_the_third_sign_of_equality_of_right_triangles
+<- subject_domain_of_triangles;
+<- subject_domain_of_right_triangles;
+=> nrel_main_idtf: [третий признак (по катету и противолежащему острому углу)] (* <- lang_ru;; *);
+=> nrel_idtf: [третий признак равенства прямоугольных треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [равенство прямоугольных треугольников по катету и противолежащему острому углу] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если катет и противолежащий острый угол одного прямоугольного треугольника соответственно равны катету и противолежащему острому углу другого прямоугольного треугольника, то такие треугольники равны]
+    (* <- lang_ru;; *);;
+    
+teorem_the_fourth_sign_of_equality_of_right_triangles
+<- subject_domain_of_triangles;
+<- subject_domain_of_right_triangles;
+=> nrel_main_idtf: [четвертый признак (по гипотенузе и острому углу)] (* <- lang_ru;; *);
+=> nrel_idtf: [четвертый признак равенства прямоугольных треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [равенство прямоугольных треугольников по гипотенузе и острому углу] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если гипотенуза и острый угол одного прямоугольного треугольника соответственно равны гипотенузе и острому углу другого прямоугольного треугольника, то такие треугольники равны]
+    (* <- lang_ru;; *);;
+
+teorem_the_fifth_sign_of_equality_of_right_triangles
+<- subject_domain_of_triangles;
+<- subject_domain_of_right_triangles;
+=> nrel_main_idtf: [пятый признак (по катету и гипотенузе)] (* <- lang_ru;; *);
+=> nrel_idtf: [пятый признак равенства прямоугольных треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [равенство прямоугольных треугольников по катету и гипотенузе] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если катет и гипотенуза одного прямоугольного треугольника соответственно равны катету и гипотенузе другого прямоугольного треугольника, то такие треугольники равны.]
+    (* <- lang_ru;; *);;
+    
+teorem_about_leg
+<- subject_domain_of_triangles;
+<- subject_domain_of_right_triangles;
+=> nrel_main_idtf: [теорема (о катете, лежащем против угла в 30°)] (* <- lang_ru;; *);
+=> nrel_idtf: [катет, лежащий против угла в 30°] (* <- lang_ru;; *);
+=> nrel_idtf: [катет лежащий против угла в 30°] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [катет прямоугольного треугольника, лежащий против угла в 30°, равен половине гипотенузы. Если в прямоугольном треугольнике катет равен половине гипотенузы, то этот катет лежит против угла в 30°.]
+    (* <- lang_ru;; *);;

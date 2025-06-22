@@ -1,0 +1,14 @@
+teorem_of_distance_between_parallel_lines
+<- subject_domain_of_triangle;
+=> nrel_main_idtf: [теорема (о расстоянии между параллельными прямыми)] (* <- lang_ru;; *);
+=> nrel_idtf: [расстояние между параллельными прямыми] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [все точки каждой из двух параллельных прямых равноудалены от другой прямой]
+    (* <- lang_ru;; *);;
+
+
+
+

@@ -1,0 +1,77 @@
+teorem_of_parallelism_of_lines
+<- subject_domain_of_parallel_lines;
+=> nrel_main_idtf:
+    [признаки параллельности прямых]
+    (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [при пересечении двух прямых секущей внутренние накрест лежащие углы равны, то прямые параллельны. Если при пересечении двух прямых секущей соответственные углы равны, то прямые параллельны. Если при пересечении двух прямых секущей сумма внутренних односторонних углов равна 180°, то прямые параллельны.]
+    (* <- lang_ru;; *);;
+
+teorem_the_first_sign_of_parallelism_of_lines
+<- subject_domain_of_parallel_lines;
+=> nrel_main_idtf: [теорема (первый признак параллельности прямых)] (* <- lang_ru;; *);
+=> nrel_idtf: [первый признак параллельности прямых] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [при пересечении двух прямых секущей внутренние накрест лежащие углы равны, то прямые параллельны]
+    (* <- lang_ru;; *);;
+
+teorem_the_second_sign_of_parallelism_of_lines
+<- subject_domain_of_parallel_lines;
+=> nrel_main_idtf: [теорема (второй признак параллельности прямых)] (* <- lang_ru;; *);
+=> nrel_idtf: [второй признак параллельности прямых] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [при пересечении двух прямых секущей соответственные углы равны, то прямые параллельны]
+    (* <- lang_ru;; *);;
+
+teorem_the_third_sign_of_parallelism_of_lines
+<- subject_domain_of_parallel_lines;
+=> nrel_main_idtf: [теорема (третий признак параллельности прямых)] (* <- lang_ru;; *);
+=> nrel_idtf: [третий признак параллельности прямых] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [при пересечении двух прямых секущей сумма внутренних односторонних углов равна 180°, то прямые параллельны]
+    (* <- lang_ru;; *);;
+    
+teorem_about_properties_of_intersecting_angles_of_parallel_straight_lines
+<- subject_domain_of_parallel_lines;
+=> nrel_main_idtf: [теорема  (о свойстве накрест лежащих углов при параллельных прямых и секущей)] (* <- lang_ru;; *);
+=> nrel_idtf: [свойство накрест лежащих углов при параллельных прямых и секущей] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если две параллельные прямые пересечены секущей, то внутренние накрест лежащие углы равны]
+    (* <- lang_ru;; *);;
+        
+teorem_about_properties_of_appropriate_angles_of_parallel_straight_lines
+<- subject_domain_of_parallel_lines;
+=> nrel_main_idtf: [теорема  (о свойстве соответственных углов при параллельных прямых и секущей)] (* <- lang_ru;; *);
+=> nrel_idtf: [свойство соответственных углов при параллельных прямых и секущей] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если две параллельные прямые пересечены секущей, то соответственные углы равны]
+    (* <- lang_ru;; *);;
+            
+teorem_about_properties_of_unilateral_angles_of_parallel_straight_lines
+<- subject_domain_of_parallel_lines;
+=> nrel_main_idtf: [теорема  (о свойстве односторонних углов при параллельных прямых и секущей)] (* <- lang_ru;; *);
+=> nrel_idtf: [свойство односторонних углов при параллельных прямых и секущей] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [если две параллельные прямые пересечены секущей, то сумма внутренних односторонних углов равна 180°]
+    (* <- lang_ru;; *);;

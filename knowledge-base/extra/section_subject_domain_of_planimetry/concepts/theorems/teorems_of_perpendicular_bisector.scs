@@ -1,0 +1,10 @@
+teorem_of_perpendicular_bisector
+<- subject_domain_of_perpendicular_bisectors;
+=> nrel_main_idtf: [теорема (о серединном перпендикуляре)] (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_teorem;
+<- concept_theme;
+=> nrel_note: 
+    [любая точка серединного перпендикуляра к отрезку равноудалена от концов этого отрезка. Если точка равноудалена от концов отрезка, то она лежит на серединном перпендикуляре к этому отрезку.]
+    (* <- lang_ru;; *);;
+
