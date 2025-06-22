@@ -1,6 +1,7 @@
 teorem_of_perpendicular
 <- subject_domain_of_perpendiculars;
-=> nrel_main_idtf: [теорема о перпендикуляре] (* <- lang_ru;; *);
+=> nrel_main_idtf: [теорема (о перпендикуляре)] (* <- lang_ru;; *);
+=> nrel_idtf: [теорема о перпендикуляре] (* <- lang_ru;; *);
 <- concept_wit_entity;
 <- concept_teorem;
 <- concept_theme;
@@ -11,6 +12,8 @@ teorem_of_perpendicular
 theorem_on_two_lines_perpendicular_to_a_third
 <- subject_domain_of_perpendiculars;
 => nrel_main_idtf: [теорема (о двух прямых, перпендикулярных третьей)] (* <- lang_ru;; *);
+=> nrel_idtf: [теорема о двух прямых, перпендикулярных третьей] (* <- lang_ru;; *);
+=> nrel_idtf: [две прямые, перпендикулярные третьей] (* <- lang_ru;; *);
 <- concept_wit_entity;
 <- concept_teorem;
 <- concept_theme;
