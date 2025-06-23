@@ -1,0 +1,15 @@
+property_of_right_triangle
+<- subject_domain_of_straights;
+=> nrel_main_idtf:
+    [свойство равных треугольников]
+    (* <- lang_ru;; *);
+<- concept_wit_entity;
+<- concept_axiom;
+<- concept_theme;
+=> nrel_note: 
+    [в равных треугольниках против равных сторон лежат равные углы, а против равных углов — равные стороны]
+    (* <- lang_ru;; *);;
+
+
+
+

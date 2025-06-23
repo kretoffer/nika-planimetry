@@ -1,0 +1,179 @@
+theme_1
+=> nrel_main_idtf: [Тема. Предмет геометрии] (* <- lang_ru;; *);
+=> nrel_idtf: [предмет геометрии] (* <- lang_ru;; *);
+=> nrel_idtf: [геометрия] (* <- lang_ru;; *);
+-> rrel_inclusion: concept_axiom;
+-> rrel_inclusion: concept_teorem;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;
+
+theme_2
+=> nrel_main_idtf: [Тема. Простейшие геометрические фигуры] (* <- lang_ru;; *);
+=> nrel_idtf: [простейшие геометрические фигуры] (* <- lang_ru;; *);
+-> rrel_inclusion: concept_straight;
+-> rrel_inclusion: concept_beam;
+-> rrel_inclusion: concept_broken_line;
+-> rrel_inclusion: concept_segment;
+-> rrel_inclusion: axiom_of_measurement_of_segments;
+-> rrel_inclusion: axiom_of_postponing_segments;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [Эта тема включает в себя определения простейших геометрических фигур, таких как прямая, луч, отрезок, ломаная. Также аксиому измерения отрезков и аксиому откладывания отрезков.]
+    (* <- lang_ru;; *);;
+
+theme_3
+=> nrel_main_idtf: [Тема. Окружность и круг] (* <- lang_ru;; *);
+=> nrel_idtf: [окружность и круг] (* <- lang_ru;; *);
+-> rrel_inclusion: concept_circumference;
+-> rrel_inclusion: concept_circle;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;
+    
+theme_4
+=> nrel_main_idtf: [Тема. Угол. Виды углов] (* <- lang_ru;; *);
+=> nrel_idtf: [угол. Виды углов] (* <- lang_ru;; *);
+=> nrel_idtf: [угол. виды углов] (* <- lang_ru;; *);
+=> nrel_idtf: [Угол. Виды углов] (* <- lang_ru;; *);
+=> nrel_idtf: [Угол. виды углов] (* <- lang_ru;; *);
+=> nrel_idtf: [виды углов] (* <- lang_ru;; *);
+=> nrel_idtf: [Виды углов] (* <- lang_ru;; *);
+-> rrel_inclusion: concept_corner;
+-> rrel_inclusion: concept_acute_corner;
+-> rrel_inclusion: concept_right_corner;
+-> rrel_inclusion: concept_obtuse_corner;
+-> rrel_inclusion: axiom_of_measurement_of_corners;
+-> rrel_inclusion: axiom_of_postponing_corners;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;
+    
+theme_5
+=> nrel_main_idtf: [Тема. Смежные углы. Вертикальные углы] (* <- lang_ru;; *);
+=> nrel_idtf: [Смежные углы. Вертикальные углы] (* <- lang_ru;; *);
+=> nrel_idtf: [смежные углы. Вертикальные углы] (* <- lang_ru;; *);
+=> nrel_idtf: [смежные углы. вертикальные углы] (* <- lang_ru;; *);
+=> nrel_idtf: [смежные углы и вертикальные углы] (* <- lang_ru;; *);
+=> nrel_idtf: [смежные и вертикальные углы] (* <- lang_ru;; *);
+-> rrel_inclusion: concept_adjacent_corners;
+-> rrel_inclusion: concept_vertical_corners;
+-> rrel_inclusion: property_of_adjacent_angles;
+-> rrel_inclusion: property_of_vertical_angles;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;  
+    
+theme_6
+=> nrel_main_idtf: [Тема. Перпендикулярные прямые] (* <- lang_ru;; *);
+=> nrel_idtf: [перпендикулярные прямые] (* <- lang_ru;; *);
+-> rrel_inclusion: concept_perpendicular;
+-> rrel_inclusion: teorem_of_perpendicular;
+-> rrel_inclusion: theorem_on_two_lines_perpendicular_to_a_third;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;
+        
+theme_7
+=> nrel_main_idtf: [Тема. Треугольники] (* <- lang_ru;; *);
+=> nrel_idtf: [треугольники] (* <- lang_ru;; *);
+-> rrel_inclusion: concept_triangle;
+-> rrel_inclusion: property_of_right_triangle;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;
+    
+theme_8
+=> nrel_main_idtf: [Тема. Признаки равенства треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [признаки равенства треугольников] (* <- lang_ru;; *);
+=> nrel_idtf: [равенство треугольников] (* <- lang_ru;; *);
+-> rrel_inclusion: teorem_the_first_sign_of_equality_of_triangles;
+-> rrel_inclusion: teorem_the_second_sign_of_equality_of_triangles;
+-> rrel_inclusion: teorem_the_third_sign_of_equality_of_triangles;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;
+        
+theme_9
+=> nrel_main_idtf: [Тема. Высота, медиана и биссектриса треугольника] (* <- lang_ru;; *);
+=> nrel_idtf: [высота, медиана и биссектриса треугольника] (* <- lang_ru;; *);
+-> rrel_inclusion: concept_bisector;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;
+            
+theme_10
+=> nrel_main_idtf: [Тема. Равнобедренный треугольник] (* <- lang_ru;; *);
+=> nrel_idtf: [равнобедренный треугольник] (* <- lang_ru;; *);
+-> rrel_inclusion: teorem_about_the_property_of_angles_at_the_base;
+-> rrel_inclusion: teorem_isosceles_triangle_sign;
+-> rrel_inclusion: teorem_about_properties_of_bisector_of_an_equifemoral_triangle;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;
+                
+theme_11
+=> nrel_main_idtf: [Тема. Серединный перпендикуляр к отрезку] (* <- lang_ru;; *);
+=> nrel_idtf: [серединный перпендикуляр к отрезку] (* <- lang_ru;; *);
+-> rrel_inclusion: teorem_of_perpendicular_bisector;
+-> rrel_inclusion: concept_perpendicular;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;
+                    
+theme_12
+=> nrel_main_idtf: [Тема. Признаки параллельности прямых] (* <- lang_ru;; *);
+=> nrel_idtf: [признаки параллельности прямых] (* <- lang_ru;; *);
+=> nrel_idtf: [признак параллельности прямых] (* <- lang_ru;; *);
+-> rrel_inclusion: teorem_the_first_sign_of_parallelism_of_lines;
+-> rrel_inclusion: teorem_the_second_sign_of_parallelism_of_lines;
+-> rrel_inclusion: teorem_the_third_sign_of_parallelism_of_lines;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;
+                        
+theme_13
+=> nrel_main_idtf: [Тема. Аксиома параллельных прямых] (* <- lang_ru;; *);
+=> nrel_idtf: [аксиома параллельных прямых] (* <- lang_ru;; *);
+-> rrel_inclusion: axiom_of_measurement_of_parallel_lines;
+-> rrel_inclusion: theorem_on_two_lines_parallels_to_a_third;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;
+                            
+theme_14
+=> nrel_main_idtf: [Тема. Свойства параллельных прямых] (* <- lang_ru;; *);
+=> nrel_idtf: [свойства параллельных прямых] (* <- lang_ru;; *);
+-> rrel_inclusion: teorem_about_properties_of_intersecting_angles_of_parallel_straight_lines;
+-> rrel_inclusion: teorem_about_properties_of_appropriate_angles_of_parallel_straight_lines;
+-> rrel_inclusion: teorem_about_properties_of_unilateral_angles_of_parallel_straight_lines;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;
