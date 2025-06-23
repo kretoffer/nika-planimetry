@@ -1,0 +1,39 @@
+task_theme_2_1
+<= nrel_task_theme: theme_2;
+<- concept_task;
+<- concept_wit_entity;
+=> nrel_main_idtf: [задача №1] (* <- lang_ru;; *);
+=> nrel_idtf: [задачи №1] (* <- lang_ru;; *);
+=> nrel_idtf: [задачу №1] (* <- lang_ru;; *);
+=> nrel_idtf:
+    [Задача №1. Нахождение точки между двумя другими]
+    (* <- lang_ru;; *);
+=> nrel_task_level: [нормально] (* <- lang_ru;; *);
+=> nrel_task_answer: [<ответ>] (* <- lang_ru;; *);
+=> nrel_task_clue:
+    [<подсказка>]
+    (* <- lang_ru;; *);
+=> nrel_condition: 
+    [На прямой отмечены точки A, B и C так, что AB = 14 см, BC = 32 см, AC = 18 см. Определите, какая из точек лежит между двумя другими.] 
+    (* <- lang_ru;; *);
+=> nrel_note: [note] (* <- lang_ru;; *);;
+
+task_theme_2_2
+<= nrel_task_theme: theme_2;
+<- concept_task;
+<- concept_wit_entity;
+=> nrel_main_idtf: [задача №2] (* <- lang_ru;; *);
+=> nrel_idtf: [задачи №2] (* <- lang_ru;; *);
+=> nrel_idtf: [задачу №2] (* <- lang_ru;; *);
+=> nrel_idtf:
+    [Задача №2. Нахождение длина отрезка и расстояния от середены отрезка]
+    (* <- lang_ru;; *);
+=> nrel_task_level: [нормально] (* <- lang_ru;; *);
+=> nrel_task_answer: [<ответ>] (* <- lang_ru;; *);
+=> nrel_task_clue:
+    [<подсказка>]
+    (* <- lang_ru;; *);
+=> nrel_condition: 
+    [а) На отрезке AB, равном 56 см, взята точка M. Отрезок AM на 4 см меньше отрезка MB. Найдите длину отрезка BM.<br>б) Точка P лежит на отрезке EF, равном 24 дм. Отрезок EP в 3 раза больше отрезка PF. Найдите расстояние от середины отрезка PF до точки E.] 
+    (* <- lang_ru;; *);
+=> nrel_note: [note] (* <- lang_ru;; *);;

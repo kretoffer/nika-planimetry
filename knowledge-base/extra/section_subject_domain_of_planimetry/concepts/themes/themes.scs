@@ -177,3 +177,14 @@ theme_14
 => nrel_definition: 
     [определение]
     (* <- lang_ru;; *);;
+                                
+theme_15
+=> nrel_main_idtf: [Тема. Углы с соответственно параллельными и соотвветственно перпендикулярными сторонами] (* <- lang_ru;; *);
+=> nrel_idtf: [углы с соответственно параллельными и соотвветственно перпендикулярными сторонами] (* <- lang_ru;; *);
+-> rrel_inclusion: teorem_about_angles_with_corresponding_parallel_sides;
+-> rrel_inclusion: teorem_about_angles_with_corresponding_perpendicular_sides;
+<- concept_wit_entity;
+<- concept_theme;
+=> nrel_definition: 
+    [определение]
+    (* <- lang_ru;; *);;
