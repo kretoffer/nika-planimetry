@@ -70,7 +70,7 @@ class ThemeAgent(ScAgentClassic):
             idtf = get_element_system_identifier(theme_addr)
             
             if not theme_addr.is_valid() or not idtf:
-                self.set_unknown_theme_link(action_node, message_addr, rrel_response)
+                self.set_unknown_theme_link(action_node, theme_addr, rrel_response)
                 return ScResult.OK
             
             
@@ -85,7 +85,7 @@ class ThemeAgent(ScAgentClassic):
             links = [inclusion.get(2) for inclusion in inclusions]
 
             if len_links := len(links) == 0:
-                self.set_unknown_theme_link(action_node, message_addr, rrel_response,
+                self.set_unknown_theme_link(action_node, theme_addr, rrel_response,
                                             f"{get_link_content_data(self.get_ru_main_identifier(theme_addr))} не является темой")
                 return ScResult.OK
 
@@ -161,7 +161,7 @@ class ThemeAgent(ScAgentClassic):
         template.quintuple(
             theme,
             sc_type.VAR_PERM_POS_ARC,
-            sc_type.VAR_NODE_LINK,
+            sc_type.VAR_NODE_CLASS,
             sc_type.VAR_PERM_POS_ARC,
             rrel_inclusion
         )

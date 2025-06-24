@@ -188,3 +188,6 @@ theme_15
 => nrel_definition: 
     [определение]
     (* <- lang_ru;; *);;
+    
+rrel_inclusion
+<- sc_node_role_relation;;

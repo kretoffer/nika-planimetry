@@ -92,7 +92,7 @@ class TaskAgent(ScAgentClassic):
                                             "Я не знаю задач на эту тему с такой сложностью")
                 return ScResult.OK
             
-            _idtf = get_link_content_data(self.search_lang_value_by_nrel_identifier(task, "nrel_idtf"))
+            _idtf = get_link_content_data(self.search_lang_value_by_nrel_identifier(task, "nrel_name"))
             _main_idtf = get_link_content_data(self.get_ru_main_identifier(task))
             _level = get_link_content_data(self.search_lang_value_by_nrel_identifier(task, "nrel_task_level"))
             _condition = get_link_content_data(self.search_lang_value_by_nrel_identifier(task, "nrel_condition"))
