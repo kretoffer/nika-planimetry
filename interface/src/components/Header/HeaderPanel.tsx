@@ -14,6 +14,9 @@ export const HeaderPanel = () => {
                     <li>
                         <NavLink to={routes.ABOUT}>О нас</NavLink>
                     </li>
+                    <li>
+                        <a href="https://github.com/kretoffer/nika-planimetry" target="_blank">Source code</a>
+                    </li>
                 </ul>
             </div>
         </div>
