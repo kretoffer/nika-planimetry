@@ -34,7 +34,7 @@ We recommend using Docker Desktop on [macOS](https://docs.docker.com/desktop/ins
 
 ```sh
 git clone -c core.longpaths=true -c core.autocrlf=true https://github.com/kretoffer/nika-planimetry.git
-cd nika
+cd nika-planimetry
 git submodule update --init --recursive
 ./install_nika.sh
 ```
